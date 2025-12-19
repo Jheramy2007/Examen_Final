@@ -1,13 +1,13 @@
 /* VARIABLES GLOBALES */
 :root {
-    --bg1: #0b1020;
-    --bg2: #0f172a;
-    --panel: rgba(17, 24, 39, 0.75);
-    --panel2: rgba(11, 18, 32, 0.85);
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --line: #1f2937;
-    --accent: #22c55e;
+    --bg1: #f3f4f6;       /* Fondo gris claro */
+    --bg2: #e5e7eb;       /* Gris un poco más oscuro */
+    --panel: #ffffff;     /* Tarjetas blancas */
+    --panel2: #ffffff;    /* Sidebar blanco */
+    --text: #1f2937;      /* Texto oscuro */
+    --muted: #6b7280;     /* Texto gris */
+    --line: #e5e7eb;      /* Líneas suaves */
+    --accent: #3b82f6;
 }
 
 /* PROPIEDADES GLOBALES */
@@ -86,7 +86,7 @@ input {
     padding: 12px 12px;
     border-radius: 10px;
     border: 1px solid var(--line);
-    background: rgba(11, 18, 32, 0.9);
+    background: #ffffff; /* ANTES ERA OSCURO, AHORA BLANCO */
     color: var(--text);
     outline: none;
 }
@@ -111,7 +111,7 @@ input:focus {
 
 .btn.primary {
     background: var(--accent);
-    color: #04210f;
+    color: #ffffff;
 }
 
 .btn.primary:hover {
@@ -198,7 +198,7 @@ input:focus {
 }
 
 .nav-item:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .nav-item.active {
@@ -219,7 +219,7 @@ input:focus {
 }
 
 .mini-card {
-    background: rgba(11, 18, 32, 0.8);
+    background: var(--panel); 
     border: 1px solid var(--line);
     border-radius: 14px;
     padding: 12px;
