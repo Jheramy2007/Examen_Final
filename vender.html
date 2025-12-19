@@ -3,160 +3,61 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sistema de Ventas - Nueva Venta</title>
+    <title>Sistema de Ventas - Vender</title>
     <link rel="stylesheet" href="css/style.css" />
-    </head>
+</head>
 <body>
 
     <header class="topbar">
-        <div class="brand">Sistema de Ventas</div>
-        <div class="topbar-right">
-            <span id="userLabel" class="muted">Usuario: demo</span>
-            <button id="btnLogout" class="btn ghost">Salir</button>
-        </div>
+    <div class="brand">Sistema de Ventas</div>
+    <div class="topbar-right">
+        <span id="userLabel" class="muted">Usuario: demo</span>
+        <button id="btnLogout" class="btn ghost">Salir</button>
+    </div>
     </header>
 
     <div class="layout">
-        <aside class="sidebar">
-            <div class="side-title">Menú</div>
-            <nav class="nav">
-                <a class="nav-item" href="inicio.html" data-page="inicio">🏠 Inicio</a>
-                <a class="nav-item active" href="vender.html" data-page="vender">🧾 Vender</a>
-            </nav>
-        </aside>
+    <aside class="sidebar">
+        <div class="side-title">Menú</div>
+        <nav class="nav">
+        <a class="nav-item" href="inicio.html" data-page="inicio">🏠 Inicio</a>
+        <a class="nav-item" href="vender.html" data-page="vender">🧾 Vender</a>
+        </nav>
+    </aside>
 
-        <main class="workarea">
-            <section class="card invoice-panel">
-                
-                <div class="invoice-header">
-                    <h2 class="h2">📄 NUEVA FACTURA</h2>
-                    <div class="invoice-types">
-                        <button class="btn info active">Emitir Factura</button>
-                        <button class="btn danger">Emitir Boleta</button>
-                        <button class="btn warn">Nota de Venta</button>
-                    </div>
-                </div>
+    <main class="workarea">
+        <section class="card">
+        <h2 class="h2">Vender</h2>
+        <p class="muted">Pantalla base para registrar una venta (demo).</p>
 
-                <div class="form-row four-col">
-                    <div class="field-group">
-                        <label>Moneda</label>
-                        <select class="input-dark"><option>Soles (S/)</option><option>Dólares ($)</option></select>
-                    </div>
-                    <div class="field-group">
-                        <label>Serie</label>
-                        <select class="input-dark"><option>F001</option><option>F002</option></select>
-                    </div>
-                    <div class="field-group">
-                        <label>Fecha Emisión</label>
-                        <input type="date" class="input-dark" value="2025-12-19">
-                    </div>
-                    <div class="field-group">
-                        <label>Fecha Vencimiento</label>
-                        <input type="date" class="input-dark" value="2025-12-19">
-                    </div>
-                </div>
+        <div class="sale-row" style="margin-top:12px;">
+            <div class="sale-field">
+            <label>Producto</label>
+            <input id="producto" type="text" placeholder="Ej: Tornillo 1/4" />
+            </div>
 
-                <hr class="separator">
+            <div class="sale-field">
+            <label>Cantidad</label>
+            <input id="cantidad" type="number" min="1" value="1" />
+            </div>
 
-                <div class="client-section">
-                    <label class="section-label">CLIENTE:</label>
-                    
-                    <div class="form-row search-row">
-                        <div class="field-group small">
-                            <select class="input-dark"><option>R.U.C.</option><option>D.N.I.</option></select>
-                        </div>
-                        <div class="field-group medium search-group">
-                            <input type="text" class="input-dark" placeholder="Ingrese número de documento...">
-                            <button class="btn primary icon-btn">🔍</button>
-                        </div>
-                        <div class="field-group large">
-                            <input type="text" class="input-dark" placeholder="Ingrese nombre o razón social...">
-                        </div>
-                    </div>
+            <div class="sale-field">
+            <label>Precio</label>
+            <input id="precio" type="number" min="0" step="0.10" placeholder="0.00" />
+            </div>
+        </div>
 
-                    <div class="form-row three-col">
-                        <input type="text" class="input-dark" placeholder="Ingrese la dirección...">
-                        <input type="text" class="input-dark" placeholder="Ingrese código de ubigeo...">
-                        <input type="text" class="input-dark" placeholder="Ingrese su número de celular...">
-                    </div>
+        <div class="sale-actions">
+            <button id="btnAdd" class="btn ghost">Agregar (demo)</button>
+            <button id="btnPay" class="btn primary small">Cobrar (demo)</button>
+        </div>
 
-                    <div class="form-row options-row">
-                        <div class="toggle-group">
-                            <span>¿Enviar Comprobante al Email?</span>
-                            <div class="toggle-switch">
-                                <input type="checkbox" id="emailSwitch">
-                                <label for="emailSwitch" class="switch-label"></label>
-                            </div>
-                        </div>
-                        <div class="field-group">
-                            <label>¿Contado o Crédito?</label>
-                            <select class="input-dark"><option>Contado</option><option>Crédito</option></select>
-                        </div>
-                    </div>
-                </div>
+        <div class="mini muted" style="margin-top:10px;">
+            Aquí luego conectas carrito, stock, impresión, etc.
+        </div>
 
-                <div class="actions-bar right-align">
-                    <button class="btn primary">🛒 Agregar Productos</button>
-                    <button class="btn info">Nuevo Producto</button>
-                </div>
-
-                <div class="table-container">
-                    <table class="details-table">
-                        <thead>
-                            <tr>
-                                <th>CÓDIGO</th>
-                                <th>CANTIDAD</th>
-                                <th>UNI/MEDIDA</th>
-                                <th>DESCRIPCIÓN</th>
-                                <th>PRECIO UNIT.</th>
-                                <th>TOTAL</th>
-                                <th>ACCIÓN</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tablaProductos">
-                            <tr>
-                                <td><input type="text" class="input-transparent" placeholder="Cod"></td>
-                                <td><input type="number" class="input-transparent" value="1"></td>
-                                <td>NIU</td>
-                                <td><input type="text" class="input-transparent" placeholder="Buscar producto..."></td>
-                                <td>0.00</td>
-                                <td>0.00</td>
-                                <td><button class="btn-delete">❌</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="invoice-footer">
-                    <div class="footer-left">
-                        <div class="field-group">
-                            <label>Método de Pago:</label>
-                            <select class="input-dark full-width"><option>En efectivo</option><option>Yape/Plin</option></select>
-                        </div>
-                        <div class="field-group">
-                            <label>Observaciones:</label>
-                            <textarea class="input-dark full-width" rows="2"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-right">
-                        <div class="summary-row">
-                            <span>OP. GRAVADA</span>
-                            <span>0.00</span>
-                        </div>
-                        <div class="summary-row">
-                            <span>IGV (18%)</span>
-                            <span>0.00</span>
-                        </div>
-                        <div class="summary-row total">
-                            <span>TOTAL</span>
-                            <span class="total-amount">0.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </main>
+        </section>
+    </main>
     </div>
 
     <script src="js/layout.js"></script>
