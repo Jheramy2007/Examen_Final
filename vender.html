@@ -9,55 +9,132 @@
 <body>
 
     <header class="topbar">
-    <div class="brand">Sistema de Ventas</div>
-    <div class="topbar-right">
-        <span id="userLabel" class="muted">Usuario: demo</span>
-        <button id="btnLogout" class="btn ghost">Salir</button>
-    </div>
+        <div class="brand">AWSPERUTIC</div>
+        <div class="topbar-right">
+            <span id="userLabel" class="muted">Usuario: dacuna</span>
+            <button id="btnLogout" class="btn ghost">Salir</button>
+        </div>
     </header>
 
     <div class="layout">
-    <aside class="sidebar">
-        <div class="side-title">Menú</div>
-        <nav class="nav">
-        <a class="nav-item" href="inicio.html" data-page="inicio">🏠 Inicio</a>
-        <a class="nav-item" href="vender.html" data-page="vender">🧾 Vender</a>
-        </nav>
-    </aside>
+        <aside class="sidebar">
+            <div class="side-title">Menú</div>
+            <nav class="nav">
+                <a class="nav-item" href="inicio.html" data-page="inicio">🏠 Inicio</a>
+                <a class="nav-item active" href="vender.html" data-page="vender">🧾 Ventas</a>
+                <a class="nav-item" href="#">📦 Productos</a>
+                <a class="nav-item" href="#">👥 Clientes</a>
+            </nav>
+        </aside>
 
-    <main class="workarea">
-        <section class="card">
-        <h2 class="h2">Vender</h2>
-        <p class="muted">Pantalla base para registrar una venta (demo).</p>
-
-        <div class="sale-row" style="margin-top:12px;">
-            <div class="sale-field">
-            <label>Producto</label>
-            <input id="producto" type="text" placeholder="Ej: Tornillo 1/4" />
+        <main class="workarea">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <button class="btn ghost" style="background: #475569; color: white;">📂 NUEVA FACTURA</button>
+                <div style="display: flex; gap: 8px;">
+                    <button id="btnEmitirFactura" class="btn primary small" style="background:#0284c7; color:white;">📄 EMITIR FACTURA</button>
+                    <button id="btnEmitirBoleta" class="btn primary small" style="background:#ef4444; color:white;">📄 EMITIR BOLETA</button>
+                    <button id="btnNotaVenta" class="btn primary small" style="background:#db2777; color:white;">📄 NOTA DE VENTA</button>
+                </div>
             </div>
 
-            <div class="sale-field">
-            <label>Cantidad</label>
-            <input id="cantidad" type="number" min="1" value="1" />
-            </div>
+            <section class="card">
+                <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <label>Moneda</label>
+                        <select class="nav-item" style="border: 1px solid var(--line); width:100%; height: 40px; background: var(--bg2);">
+                            <option>Soles (S/)</option>
+                            <option>Dólares ($)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Serie</label>
+                        <select class="nav-item" style="border: 1px solid var(--line); width:100%; height: 40px; background: var(--bg2);">
+                            <option>F002</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Fecha Emisión</label>
+                        <input type="date" value="2025-12-19" style="height: 40px;">
+                    </div>
+                    <div>
+                        <label>Fecha Vencimiento</label>
+                        <input type="date" value="2025-12-19" style="height: 40px;">
+                    </div>
+                </div>
 
-            <div class="sale-field">
-            <label>Precio</label>
-            <input id="precio" type="number" min="0" step="0.10" placeholder="0.00" />
-            </div>
-        </div>
+                <div class="side-title" style="margin-bottom: 10px; border-bottom: 1px solid var(--line);">Datos del Cliente</div>
+                <div style="display: grid; grid-template-columns: 1fr 1.5fr 0.5fr 2fr; gap: 10px; margin-bottom: 10px;">
+                    <select id="tipoDoc" style="height: 40px; background: var(--bg2); color: white; border: 1px solid var(--line); border-radius: 8px;">
+                        <option value="RUC">R.U.C.</option>
+                        <option value="DNI">D.N.I.</option>
+                    </select>
+                    <input id="numDoc" type="text" placeholder="Número de documento..." style="height: 40px;">
+                    <button id="btnBuscarCliente" class="btn primary" style="height: 40px; width: 100%;">🔍</button>
+                    <input id="razonSocial" type="text" placeholder="Nombre o Razón Social..." style="height: 40px;">
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                    <input id="direccion" type="text" placeholder="Dirección del cliente..." style="height: 40px;">
+                    <input type="text" placeholder="Ubigeo..." style="height: 40px;">
+                    <input type="text" placeholder="Celular..." style="height: 40px;">
+                </div>
 
-        <div class="sale-actions">
-            <button id="btnAdd" class="btn ghost">Agregar (demo)</button>
-            <button id="btnPay" class="btn primary small">Cobrar (demo)</button>
-        </div>
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: #0284c7; color: white; text-align: left; font-size: 11px; text-transform: uppercase;">
+                                <th style="padding: 10px;">Código</th>
+                                <th style="padding: 10px; width: 80px;">Cant.</th>
+                                <th style="padding: 10px;">Unidad</th>
+                                <th style="padding: 10px;">Descripción</th>
+                                <th style="padding: 10px;">P. Unitario</th>
+                                <th style="padding: 10px;">Subtotal</th>
+                                <th style="padding: 10px;"></th>
+                            </tr>
+                            <tr style="background: var(--panel2);">
+                                <td style="padding: 5px;"><input id="inCodigo" type="text" placeholder="C001" style="border-color: #334155;"></td>
+                                <td style="padding: 5px;"><input id="inCant" type="number" value="1" min="1"></td>
+                                <td style="padding: 5px;">
+                                    <select id="inMedida" style="width:100%; height: 38px; background: var(--bg2); color: white; border: 1px solid var(--line); border-radius: 8px;">
+                                        <option value="NIU">NIU</option>
+                                        <option value="KG">KG</option>
+                                    </select>
+                                </td>
+                                <td style="padding: 5px;"><input id="inDesc" type="text" placeholder="Buscar producto..."></td>
+                                <td style="padding: 5px;"><input id="inPrecio" type="number" placeholder="0.00"></td>
+                                <td style="padding: 5px;"><button id="btnAgregarItem" class="btn primary" style="width: 100%; padding: 8px;">Añadir</button></td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="cartBody">
+                            </tbody>
+                    </table>
+                </div>
 
-        <div class="mini muted" style="margin-top:10px;">
-            Aquí luego conectas carrito, stock, impresión, etc.
-        </div>
-
-        </section>
-    </main>
+                <div style="display: flex; gap: 40px; margin-top: 30px; border-top: 1px solid var(--line); padding-top: 20px;">
+                    <div style="flex: 2;">
+                        <label>Observaciones</label>
+                        <textarea id="obs" rows="3" style="width: 100%; background: var(--panel2); color: white; border: 1px solid var(--line); border-radius: 10px; padding: 10px; resize: none;"></textarea>
+                    </div>
+                    
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 10px; text-align: right;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span class="muted">DESCUENTO (-)</span>
+                            <span>0.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span class="muted">IGV (18%)</span>
+                            <span id="totalIgv">0.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px;">
+                            <span class="h2">TOTAL</span>
+                            <span id="totalVenta" class="h2" style="color: var(--accent);">0.00</span>
+                        </div>
+                        <button id="btnPay" class="btn primary" style="margin-top: 10px; height: 50px; font-size: 16px;">PROCESAR COBRO</button>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script src="js/layout.js"></script>
