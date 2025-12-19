@@ -5,28 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sistema de Ventas - Login</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body cal>
 
     <main class="center">
-    <section class="card login-card">
-        <h1 class="h1">Sistema de Ventas</h1>
-        <p class="muted">Examen Final Construccion de Software. Presiona “Ingresar”.</p>
+        <section class="card login-card">
+            <div class="logo-container">
+                <img src="images/image-index.jpeg" alt="Logo Sistema" class="image-index">
+            </div>
 
-        <div class="field">
-            <label for="user">Usuario</label>
-            <input id="user" type="text" placeholder="Ej: admin" autocomplete="username" />
-        </div>
+            <h1 class="h1">Sistema de Ventas</h1>
+            <p class="muted">Examen Final Construccion de Software. Ingresa con tus credenciales.</p>
 
-        <div class="field">
-        <label for="pass">Contraseña</label>
-        <input id="pass" type="password" placeholder="••••••••" autocomplete="current-password" />
-    </div>    
+            <div id="errorMsg" class="error-message"></div>
+            <div id="successMsg" class="success-message"></div>
 
-    <button id="btnLogin" class="btn primary">Ingresar</button>
+            <div class="field">
+                <label for="user">Usuario</label>
+                <div class="input-wrapper">
+                    <input id="user" type="text" placeholder="Ej: admin" autocomplete="username" />
+                    <i class="fa-solid fa-user"></i> </div>
+            </div>
 
-    <p class="mini muted">Front End — codigo inicial</p>
-    </section>
+            <div class="field">
+                <label for="pass">Contraseña</label>
+                <div class="input-wrapper">
+                    <input id="pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+                    <i class="fa-solid fa-lock"></i> </div>
+            </div>    
+
+            <button id="btnLogin" class="btn primary">INGRESAR AL SISTEMA »</button>
+
+            <p class="mini muted">Front End — codigo inicial</p>
+        </section>
     </main>
 
     <script src="js/app.js"></script>

@@ -50,11 +50,26 @@ body {
 .card {
     border: 1px solid var(--line);
     border-radius: 16px;
-    padding: 16px;
+    padding: 24px; /* Aumentado para mejor respiro con la imagen */
     background: var(--panel);
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(8px);
+    text-align: center; /* Centra el contenido de la tarjeta */
 }
+
+/* --- NUEVAS LÍNEAS PARA LA IMAGEN --- */
+.logo-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.image-index {
+    max-width: 180px; /* Ajusta el tamaño de tu logo GF */
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.2)); /* Brillo suave verde opcional */
+}
+/* ------------------------------------ */
 
 /* LOGIN */
 .center {
@@ -72,6 +87,7 @@ body {
 
 .field {
     margin-top: 12px;
+    text-align: left; /* Mantiene los labels alineados a la izquierda */
 }
 
 label {
@@ -81,18 +97,34 @@ label {
     margin-bottom: 6px;
 }
 
+/* --- NUEVAS LÍNEAS PARA ICONOS EN INPUTS --- */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 12px;
+    color: var(--muted);
+    font-size: 14px;
+}
+/* ------------------------------------------- */
+
 input {
     width: 100%;
-    padding: 12px 12px;
+    padding: 12px 40px 12px 12px; /* Padding derecho extra para el icono */
     border-radius: 10px;
     border: 1px solid var(--line);
     background: rgba(11, 18, 32, 0.9);
     color: var(--text);
     outline: none;
+    transition: border-color 0.3s;
 }
 
 input:focus {
-    border-color: #334155;
+    border-color: var(--accent); /* Cambiado a verde para que coincida con tu accent */
 }
 
 /* BOTONES */
@@ -107,6 +139,8 @@ input:focus {
     justify-content: center;
     gap: 8px;
     text-decoration: none;
+    width: 100%; /* Botón ancho para el login */
+    margin-top: 16px;
 }
 
 .btn.primary {
@@ -117,7 +151,6 @@ input:focus {
 .btn.primary:hover {
     filter: brightness(0.95);
 }
-
 .btn.ghost {
     background: transparent;
     border: 1px solid var(--line);
